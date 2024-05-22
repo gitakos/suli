@@ -1,0 +1,137 @@
+﻿<Window x:Class="_2024._04._15.wpfbeadando.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_2024._04._15.wpfbeadando"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <DataTemplate x:Key="dtPict">
+            <Border BorderThickness="3" BorderBrush="Green" CornerRadius="10">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{Binding FullName}" Width="128" Margin="5"/>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name, Mode=OneWay}" TextAlignment="Center" Foreground="White"></TextBlock>
+                        <TextBlock Text="{Binding LastAccessTime, Mode=OneWay}" TextAlignment="Center" Foreground="White"></TextBlock>
+                        <TextBlock Text="{Binding CreationTime, Mode=OneWay}" TextAlignment="Center" Foreground="White"></TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+        <ItemsPanelTemplate x:Key="pictTemplate">
+            <WrapPanel></WrapPanel>
+        </ItemsPanelTemplate>
+        <DataTemplate x:Key="dtTanciba">
+            <Border BorderThickness="3" BorderBrush="Green" CornerRadius="10">
+                <StackPanel>
+                    <StackPanel.Background>
+                        <ImageBrush ImageSource="button.PNG"/>
+                    </StackPanel.Background>
+                    <Image Source="{Binding FullName}" Width="128" Margin="5"/>
+                    <TextBlock Text="{Binding Name, Mode=OneWay}" TextAlignment="Center" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock Text="{Binding LastAccessTime, Mode=OneWay}" TextAlignment="Center" Foreground="White"/>
+                    <TextBlock Text="{Binding CreationTime, Mode=OneWay}" TextAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+        <ItemsPanelTemplate x:Key="tancibaTemplate">
+            <WrapPanel></WrapPanel>
+        </ItemsPanelTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="hatter.jpg" TileMode="Tile"/>
+        </Grid.Background>
+        <Button x:Name="nezet_gomb" Content="Nézet váltás" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="202" Height="46" FontFamily="Papyrus" FontSize="30" Foreground="White" Click="nezet_gomb_Click">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="20" Direction="270" ShadowDepth="10"/>
+            </Button.Effect>
+            <Button.Background>
+                <ImageBrush ImageSource="button.PNG" TileMode="Tile"/>
+            </Button.Background>
+        </Button>
+        <Label x:Name="nezet_label" Content="NÉZET NINCS KIVÁLASZTVA!!!!" Margin="217,10,162,0" FontFamily="Papyrus" FontSize="30" Foreground="White" Height="46" VerticalAlignment="Top">
+            <Label.Background>
+                <ImageBrush ImageSource="button.PNG"/>
+            </Label.Background>
+            <Label.Effect>
+                <DropShadowEffect BlurRadius="20" Direction="270" ShadowDepth="10"/>
+            </Label.Effect>
+        </Label>
+        <Grid x:Name="hehe" Margin="0,61,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border BorderThickness="3" BorderBrush="Green" CornerRadius="10" Grid.ColumnSpan="2" Margin="145,0,143,59">
+                <Image Source="{Binding FullName}" Margin="-3,-3,-5,-3"/>
+            </Border>
+            <Button x:Name="balra" Margin="0,127,0,164" FontFamily="Papyrus" FontSize="30" Foreground="White" Content="&lt;" Click="Button_Click_1" HorizontalAlignment="Left" Width="140" Visibility="Hidden">
+                <Button.Background>
+                    <ImageBrush ImageSource="button.PNG" TileMode="Tile"/>
+                </Button.Background>
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="20" Direction="270" ShadowDepth="10"/>
+                </Button.Effect>
+            </Button>
+            <Button x:Name="jobbra"  Margin="0,127,0,164" Content="&gt;" FontFamily="Papyrus" FontSize="30" Foreground="White" Click="Button_Click" HorizontalAlignment="Right" Width="138" Grid.Column="1">
+                <Button.Background>
+                    <ImageBrush ImageSource="button.PNG" TileMode="Tile"/>
+                </Button.Background>
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="20" Direction="270" ShadowDepth="10"/>
+                </Button.Effect>
+            </Button>
+            <TextBlock Text="{Binding Name, Mode=OneWay}" TextAlignment="Center" Foreground="White" Margin="168,0,167,0" FontSize="30" Height="59" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
+                <TextBlock.Effect>
+                    <DropShadowEffect BlurRadius="20" Direction="270" ShadowDepth="10"/>
+                </TextBlock.Effect>
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="button.PNG" TileMode="Tile"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock Text="{Binding LastAccessTime, Mode=OneWay}" Foreground="White" FontSize="18" HorizontalAlignment="Left" Width="163" Height="59" VerticalAlignment="Bottom">
+                <TextBlock.Effect>
+                    <DropShadowEffect BlurRadius="20" Direction="270" ShadowDepth="10"/>
+                </TextBlock.Effect>
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="button.PNG" TileMode="Tile"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock Text="{Binding CreationTime, Mode=OneWay}" TextAlignment="Center" Foreground="White" FontSize="18" Height="59" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="162" Grid.Column="1">
+                <TextBlock.Effect>
+                    <DropShadowEffect BlurRadius="20" Direction="270" ShadowDepth="10"/>
+                </TextBlock.Effect>
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="button.PNG" TileMode="Tile"/>
+                </TextBlock.Background>
+            </TextBlock>
+        </Grid>
+        <ListBox x:Name="lista" Margin="0,61,0,0" ItemsSource="{Binding}" ItemTemplate="{StaticResource dtPict}" Background="Transparent" Visibility="Hidden"></ListBox>
+        <DockPanel x:Name="haha" Margin="0,61,0,0" Visibility="Hidden">
+            <ListBox x:Name="tancibalista" ItemsSource="{Binding}" Background="Transparent" ItemsPanel="{StaticResource tancibaTemplate}" ItemTemplate="{StaticResource dtTanciba}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox.GroupStyle>
+                    <GroupStyle>
+                        <GroupStyle.HeaderTemplate>
+                            <DataTemplate>
+                                <Border BorderThickness="2" BorderBrush="Orange" CornerRadius="10">
+                                    <TextBlock Text="{Binding Name}" FontWeight="Bold" TextAlignment="Center" Margin="5"/>
+                                </Border>
+                            </DataTemplate>
+                        </GroupStyle.HeaderTemplate>
+                    </GroupStyle>
+                </ListBox.GroupStyle>
+            </ListBox>
+        </DockPanel>
+        <Button x:Name="rendezes" Content="Rend: Név" HorizontalAlignment="Right" Margin="0,10,0,0" VerticalAlignment="Top" Width="157" Height="51" FontFamily="Papyrus" FontSize="30" Foreground="White" Click="rendezes_Click">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="20" Direction="270" ShadowDepth="10"/>
+            </Button.Effect>
+            <Button.Background>
+                <ImageBrush ImageSource="/button.PNG" TileMode="Tile"/>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Window>
